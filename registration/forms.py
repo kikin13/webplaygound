@@ -9,7 +9,7 @@ class UserCreationFormWithEmail(UserCreationForm):
         model = User
         fields = ("username", "email", "password1", "password2")
 
-        #Validar email repetido 
+    #Validar email repetido 
     def clean_email(self):
         email = self.cleaned_data.get("email")
         if User.objects.filter(email=email).exists():

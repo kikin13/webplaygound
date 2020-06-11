@@ -126,3 +126,13 @@ STATIC_URL = '/static/'
 #Redireccionamiento de autentificacion 
 LOGIN_REDIRECT_URL = 'pages:pages'
 LOGOUT_REDIRECT_URL = 'home'
+
+#Email
+if DEBUG:
+    #Los emails enviados seran de tipo archivo 
+    EMAIL_BACKEND = "django.core.mail.backends.filebased.EmailBackend"
+    #Se guardaran en la carpeta sent_emails
+    EMAIL_FILE_PATH = os.path.join(BASE_DIR, "sent_emails")
+else:
+    #Aqui hay que configurar un email real para produccion
+    pass
