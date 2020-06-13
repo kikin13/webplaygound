@@ -18,6 +18,8 @@ from django.urls import path, include
 from pages.urls import pages_patterns
 #Cargar ficheros media
 from django.conf import settings
+#importar vistas de profiles
+from profiles.urls import profiles_patterns
 
 urlpatterns = [
     path('', include('core.urls')),
@@ -26,6 +28,9 @@ urlpatterns = [
     #Path de autentificación
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/', include('registration.urls')),
+    #Path de profiles
+    path('profiles/', include(profiles_patterns)),
+
 ]
 
 #Cargar ficheros media
